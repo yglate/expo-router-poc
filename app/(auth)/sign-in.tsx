@@ -1,6 +1,6 @@
 import { Colors, DURATION, MMKV_KEYS } from "@/constants";
 import { setItem } from "@/utils";
-import { useRouter } from "expo-router";
+import { Link, useRouter } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
 import {
@@ -9,6 +9,7 @@ import {
   Pressable,
   Text,
   TextInput,
+  View,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -65,6 +66,12 @@ const SignInScreen = () => {
           <Text className="text-white text-center font-bold">Sign In</Text>
         )}
       </Pressable>
+      <View className="flex-row justify-center gap-1 mt-10">
+        <Text className="text-gray-500">Don&apos;t have an account?</Text>
+        <Link href="/sign-up" replace>
+          <Text className="text-blue-600 font-bold">Sign Up</Text>
+        </Link>
+      </View>
     </SafeAreaView>
   );
 };
