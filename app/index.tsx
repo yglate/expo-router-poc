@@ -1,7 +1,9 @@
+import { MMKV_KEYS } from "@/constants";
+import { getItem } from "@/utils";
 import { Redirect } from "expo-router";
 
 export default function Index() {
-  const isSignedIn = true; // Replace with actual authentication logic
+  const isSignedIn: boolean = getItem<boolean>(MMKV_KEYS.IS_SIGNED_IN) || false;
 
   if (isSignedIn) {
     return <Redirect href="/(root)/(tabs)" />;

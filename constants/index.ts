@@ -1,3 +1,2 @@
-import { Platform } from "react-native";
-
-export const isIOS = Platform.OS === "ios";
+export * from "./constants";
+export * from "./mmkvKeys";
