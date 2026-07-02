@@ -8,19 +8,19 @@ const IOSTabs = () => {
     <NativeTabs>
       <NativeTabs.Trigger name="index">
         <Label>Workspace</Label>
-        <Icon sf="house" />
+        <Icon src={require("@/assets/icons/workspace.png")} />
       </NativeTabs.Trigger>
       <NativeTabs.Trigger name="messages">
         <Label>Messages</Label>
-        <Icon sf="message" />
+        <Icon src={require("@/assets/icons/messages.png")} />
       </NativeTabs.Trigger>
       <NativeTabs.Trigger name="search">
         <Label>Search</Label>
-        <Icon sf="magnifyingglass" />
+        <Icon src={require("@/assets/icons/search.png")} />
       </NativeTabs.Trigger>
       <NativeTabs.Trigger name="settings">
         <Label>Settings</Label>
-        <Icon sf="gear" />
+        <Icon src={require("@/assets/icons/settings.png")} />
       </NativeTabs.Trigger>
     </NativeTabs>
   );
@@ -64,7 +64,10 @@ const AndroidTabs = () => {
         options={{
           title: "Search",
           tabBarIcon: ({ color, focused }) => (
-            <IconVariant name={focused ? "search-filled" : "search-outlined"} />
+            <IconVariant
+              name={focused ? "search-filled" : "search-outlined"}
+              color={color}
+            />
           ),
         }}
       />
@@ -75,6 +78,7 @@ const AndroidTabs = () => {
           tabBarIcon: ({ color, focused }) => (
             <IconVariant
               name={focused ? "settings-filled" : "settings-outlined"}
+              color={color}
             />
           ),
         }}
