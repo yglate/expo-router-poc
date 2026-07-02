@@ -27,6 +27,15 @@ const IOSTabs = () => {
 };
 
 const AndroidTabs = () => {
+  const renderIcon = (name: string, focused: boolean, color: string) => {
+    return (
+      <IconVariant
+        name={focused ? `${name}-filled` : `${name}-outlined`}
+        color={color}
+      />
+    );
+  };
+
   return (
     <Tabs
       screenOptions={{
@@ -39,48 +48,32 @@ const AndroidTabs = () => {
         name="index"
         options={{
           title: "Workspace",
-          tabBarIcon: ({ color, focused }) => (
-            <IconVariant
-              name={focused ? "workspace-filled" : "workspace-outlined"}
-              color={color}
-            />
-          ),
+          tabBarIcon: ({ color, focused }) =>
+            renderIcon("workspace", focused, color),
         }}
       />
       <Tabs.Screen
         name="messages"
         options={{
           title: "Messages",
-          tabBarIcon: ({ color, focused }) => (
-            <IconVariant
-              name={focused ? "messages-filled" : "messages-outlined"}
-              color={color}
-            />
-          ),
+          tabBarIcon: ({ color, focused }) =>
+            renderIcon("messages", focused, color),
         }}
       />
       <Tabs.Screen
         name="search"
         options={{
           title: "Search",
-          tabBarIcon: ({ color, focused }) => (
-            <IconVariant
-              name={focused ? "search-filled" : "search-outlined"}
-              color={color}
-            />
-          ),
+          tabBarIcon: ({ color, focused }) =>
+            renderIcon("search", focused, color),
         }}
       />
       <Tabs.Screen
         name="settings"
         options={{
           title: "Settings",
-          tabBarIcon: ({ color, focused }) => (
-            <IconVariant
-              name={focused ? "settings-filled" : "settings-outlined"}
-              color={color}
-            />
-          ),
+          tabBarIcon: ({ color, focused }) =>
+            renderIcon("settings", focused, color),
         }}
       />
     </Tabs>
