@@ -4,7 +4,7 @@ import React from "react";
 import { Pressable, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-const ChatHistoryScreen = () => {
+const ChatDetailsScreen = () => {
   const {
     id: chatId,
     data,
@@ -26,31 +26,12 @@ const ChatHistoryScreen = () => {
   return (
     <SafeAreaView className="flex-1 bg-white">
       <View className="border border-gray-400 my-5" />
-      <View className="flex-row items-center">
-        <Pressable onPress={handleGoBack}>
-          <Ionicons name="arrow-back-outline" size={24} className="ml-2" />
-        </Pressable>
-        <Pressable
-          onPress={() => {
-            router.navigate({
-              pathname: "/(root)/workspace/chatDetails/[id]",
-              params: {
-                id: parsedData.id,
-                data: JSON.stringify(parsedData),
-                chatType,
-                sectionType,
-              },
-            });
-          }}
-        >
-          <Text className="ml-10">
-            {chatType === "Channel" ? parsedData.channelName : parsedData.name}
-          </Text>
-        </Pressable>
-      </View>
+      <Pressable onPress={handleGoBack}>
+        <Ionicons name="arrow-back-outline" size={24} className="ml-2" />
+      </Pressable>
       <View className="border border-gray-400 my-5" />
       <View className="justify-center items-center mt-20">
-        <Text className="text-2xl font-bold mb-5">Chat History Screen</Text>
+        <Text className="text-2xl font-bold mb-5">Chat Info Screen</Text>
         {parsedData ? (
           <View className="mt-4 items-center mx-10">
             <Text className="mt-4 items-center mx-10">
@@ -89,4 +70,4 @@ const ChatHistoryScreen = () => {
   );
 };
 
-export default ChatHistoryScreen;
+export default ChatDetailsScreen;

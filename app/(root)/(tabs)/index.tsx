@@ -51,7 +51,8 @@ const HomeTabScreen = () => {
               pathname: "/(root)/workspace/chatHistory/[id]",
               params: {
                 id: channel.id,
-                channel: JSON.stringify(channel),
+                data: JSON.stringify(channel),
+                chatType: "Channel",
               },
             });
           }}
