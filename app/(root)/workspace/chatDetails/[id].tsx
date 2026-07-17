@@ -1,8 +1,12 @@
+import { NavigationList, NavigationStackParamList } from "@/types";
 import { Ionicons } from "@expo/vector-icons";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import React from "react";
 import { Pressable, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+
+type ChatDetailsScreenParams =
+  NavigationStackParamList[NavigationList.CHAT_HISTORY_SCREEN];
 
 const ChatDetailsScreen = () => {
   const {
@@ -10,12 +14,7 @@ const ChatDetailsScreen = () => {
     data,
     chatType,
     sectionType,
-  } = useLocalSearchParams<{
-    id: string;
-    data: string;
-    chatType?: string;
-    sectionType?: string;
-  }>();
+  } = useLocalSearchParams<ChatDetailsScreenParams>();
   const router = useRouter();
   const parsedData = data ? JSON.parse(data) : null;
 
@@ -56,7 +55,7 @@ const ChatDetailsScreen = () => {
                 {chatType} Type: {parsedData.type}
               </Text>
             )}
-            {sectionType && (
+            {!!sectionType && (
               <Text className="mt-4 items-center mx-10">
                 {chatType}(From Messages)Section Type: {sectionType}
               </Text>

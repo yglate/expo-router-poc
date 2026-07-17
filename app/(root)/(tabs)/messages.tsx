@@ -1,9 +1,10 @@
 import { Colors, messages, sectionTypes } from "@/constants";
 import { Message } from "@/types";
-import { Ionicons } from "@expo/vector-icons";
+import { AntDesign, Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 import React, { useCallback, useRef, useState } from "react";
 import {
+  Alert,
   FlatList,
   LayoutChangeEvent,
   Pressable,
@@ -158,6 +159,14 @@ const MessagesScreen = () => {
         ListHeaderComponent={renderListHeader}
         renderItem={renderItem}
       />
+      <Pressable
+        className="absolute flex-row justify-center self-end items-center bg-blue-400 rounded-full w-16 h-16 right-5 bottom-28"
+        onPress={() => {
+          Alert.alert("Opening Bottom Sheet For New Message Creation");
+        }}
+      >
+        <AntDesign name={"plus"} size={24} color={Colors.white} />
+      </Pressable>
     </SafeAreaView>
   );
 };

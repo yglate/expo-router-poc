@@ -1,13 +1,15 @@
+import { NavigationList, NavigationStackParamList } from "@/types";
 import { Ionicons } from "@expo/vector-icons";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import React from "react";
 import { Pressable, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
+type SearchScreenParams =
+  NavigationStackParamList[NavigationList.SEARCH_SCREEN];
+
 const SearchScreen = () => {
-  const { type: searchType } = useLocalSearchParams<{
-    type: string;
-  }>();
+  const { type: searchType } = useLocalSearchParams<SearchScreenParams>();
   const router = useRouter();
 
   const handleGoBack = () => {
